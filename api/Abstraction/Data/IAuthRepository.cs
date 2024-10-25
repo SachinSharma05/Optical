@@ -1,6 +1,6 @@
 ﻿using api.Entities;
 
-namespace api.Abstraction
+namespace api.Abstraction.Data
 {
     public interface IAuthRepository
     {

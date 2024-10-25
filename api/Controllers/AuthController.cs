@@ -1,4 +1,4 @@
-﻿using api.Abstraction;
+﻿using api.Abstraction.Services;
 using api.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +39,6 @@ namespace api.Controllers
             );
         }
 
-        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<IActionResult> Register(Register registerUser)
         {
@@ -65,7 +64,7 @@ namespace api.Controllers
             if (!result)
                 return BadRequest("Unable to change password at the moment");
 
-            return Ok("User registered successfully");
+            return Ok("Password changed successfully");
         }
 
         [HttpGet("user-profile")]

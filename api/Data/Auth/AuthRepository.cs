@@ -1,4 +1,4 @@
-﻿using api.Abstraction;
+﻿using api.Abstraction.Data;
 using api.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -91,7 +91,7 @@ namespace api.Data.Auth
                 user.PasswordHash = HashPassword(password.NewPassword, salt);
 
                 // Add and save the user to the database
-                _context.Users.Add(user);
+                _context.Users.Update(user);
                 await _context.SaveChangesAsync();
 
                 return true;
