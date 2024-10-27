@@ -1,0 +1,23 @@
+<mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+  <mat-nav-list>
+    <mat-list-item (click)="toggleExpand('inventory')">
+      <mat-icon>inventory</mat-icon>
+      <span>Inventory Master</span>
+      <mat-icon class="expand-icon">{{ expandedSection === 'inventory' ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </mat-list-item>
+    <mat-nav-list *ngIf="expandedSection === 'inventory'" class="submenu">
+      <a mat-list-item>Product Type</a>
+      <a mat-list-item>Category Master</a>
+    </mat-nav-list>
+
+    <mat-list-item (click)="toggleExpand('powerDetails')">
+      <mat-icon>power</mat-icon>
+      <span>Power Details</span>
+      <mat-icon class="expand-icon">{{ expandedSection === 'powerDetails' ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </mat-list-item>
+    <mat-nav-list *ngIf="expandedSection === 'powerDetails'" class="submenu">
+      <a mat-list-item>Customer Power Details</a>
+      <a mat-list-item>List</a>
+    </mat-nav-list>
+  </mat-nav-list>
+</mat-sidenav>
