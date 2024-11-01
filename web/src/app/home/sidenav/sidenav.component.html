@@ -1,23 +1,103 @@
-<mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
-  <mat-nav-list>
-    <mat-list-item (click)="toggleExpand('inventory')">
-      <mat-icon>inventory</mat-icon>
-      <span>Inventory Master</span>
-      <mat-icon class="expand-icon">{{ expandedSection === 'inventory' ? 'expand_less' : 'expand_more' }}</mat-icon>
-    </mat-list-item>
-    <mat-nav-list *ngIf="expandedSection === 'inventory'" class="submenu">
-      <a mat-list-item>Product Type</a>
-      <a mat-list-item>Category Master</a>
-    </mat-nav-list>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="!isMobile" [mode]="isMobile ? 'over' : 'side'">
+    <mat-nav-list>
+      <mat-list-item [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </mat-list-item>
 
-    <mat-list-item (click)="toggleExpand('powerDetails')">
-      <mat-icon>power</mat-icon>
-      <span>Power Details</span>
-      <mat-icon class="expand-icon">{{ expandedSection === 'powerDetails' ? 'expand_less' : 'expand_more' }}</mat-icon>
-    </mat-list-item>
-    <mat-nav-list *ngIf="expandedSection === 'powerDetails'" class="submenu">
-      <a mat-list-item>Customer Power Details</a>
-      <a mat-list-item>List</a>
+      <mat-list-item (click)="toggleExpand('inventory')">
+        <mat-icon>inventory</mat-icon>
+        <span>Inventory Master</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'inventory' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'inventory'" class="submenu">
+        <a mat-list-item>Product Type</a>
+        <a mat-list-item>Category Master</a>
+        <a mat-list-item>Sub Category Master</a>
+        <a mat-list-item>Inventory Master</a>
+        <a mat-list-item>Create Contact</a>
+        <a mat-list-item>Salesman Master</a>
+      </mat-nav-list>
+
+      <mat-list-item (click)="toggleExpand('powerDetails')">
+        <mat-icon>visibility</mat-icon>
+        <span>Power Details</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'powerDetails' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'powerDetails'" class="submenu">
+        <a mat-list-item>Customer Power Details</a>
+        <a mat-list-item>Power Details List</a>
+        <a mat-list-item>Sell Contact Lens</a>
+        <a mat-list-item>Contact Lens Sale List</a>
+      </mat-nav-list>
+
+      <mat-list-item (click)="toggleExpand('jobOrder')">
+        <mat-icon>description</mat-icon>
+        <span>Job Order</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'jobOrder' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'jobOrder'" class="submenu">
+        <a mat-list-item>Job Order</a>
+        <a mat-list-item>Job Order List</a>
+        <a mat-list-item>Spectacles Job Card / Invoice</a>
+        <a mat-list-item>Contact-Lens Job Card / Invoice</a>
+        <a mat-list-item>Create Damage Product</a>
+        <a mat-list-item>Exchange / Sale Return</a>
+      </mat-nav-list>
+
+      <mat-list-item>
+        <mat-icon>money</mat-icon>
+        <span>Day Cash Book</span>
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon>workshop</mat-icon>
+        <span>Workshop Manager</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="toggleExpand('payBalance')">
+        <mat-icon>credit_card</mat-icon>
+        <span>Pay Remaining</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'payBalance' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'payBalance'" class="submenu">
+        <a mat-list-item>Spectacles</a>
+        <a mat-list-item>Contact Lenses</a>
+      </mat-nav-list>
+
+      <mat-list-item (click)="toggleExpand('reports')">
+        <mat-icon>credit_card</mat-icon>
+        <span>Reports</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'reports' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'reports'" class="submenu">
+        <a mat-list-item>Stock In</a>
+        <a mat-list-item>Stock Out</a>
+        <a mat-list-item>Stock In List</a>
+        <a mat-list-item>Stock Out List</a>
+        <a mat-list-item>Present Stock List</a>
+        <a mat-list-item>Required Stock List</a>
+        <a mat-list-item>Max Selling Product</a>
+      </mat-nav-list>
+
+      <mat-list-item (click)="toggleExpand('tools')">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+        <mat-icon class="expand-icon">{{ expandedSection === 'tools' ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </mat-list-item>
+      <mat-nav-list *ngIf="expandedSection === 'tools'" class="submenu">
+        <a mat-list-item>Backup Database</a>
+        <a mat-list-item>Change Password</a>
+        <a mat-list-item>Register User</a>
+      </mat-nav-list>
+
+      <mat-list-item>
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </mat-list-item>
+
     </mat-nav-list>
-  </mat-nav-list>
-</mat-sidenav>
+  </mat-sidenav>
+</mat-sidenav-container>
+

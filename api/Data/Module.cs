@@ -1,5 +1,6 @@
 ﻿using api.Abstraction.Data;
 using api.Data.Auth;
+using api.Data.Catgories;
 
 namespace api.Data
 {
@@ -8,6 +9,7 @@ namespace api.Data
         public void RegisterServices(IServiceCollection services)
         {
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
     }
 }

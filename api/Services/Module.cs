@@ -7,6 +7,7 @@ namespace api.Services
         public void RegisterServices(IServiceCollection services)
         {
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
     }
 }

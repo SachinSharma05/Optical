@@ -1,7 +1,14 @@
-<mat-toolbar>
-  <app-header></app-header>
-</mat-toolbar>
-
-<mat-sidenav-container>
-  <app-sidenav></app-sidenav>
+<mat-sidenav-container style="background-color: #fff;">
+  <mat-sidenav-content>
+    <mat-grid-list cols="8" rowHeight="130px" gutterSize="8px">
+      <mat-grid-tile *ngFor="let item of menuItems">
+        <mat-card class="content-card" (click)="navigateTo(item.link)">
+          <mat-card-content>
+            <img *ngIf="item.icon" [src]="item.icon" alt="{{item.label}}" class="icon" />
+            <p>{{ item.label }}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
 </mat-sidenav-container>

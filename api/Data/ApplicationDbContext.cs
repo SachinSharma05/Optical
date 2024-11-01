@@ -11,6 +11,10 @@ namespace api.Data
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<TaxCategory> TaxCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,44 +1,49 @@
-h1 {
-  padding: 0 1rem;
-}
-
-h2 {
-  padding: 1rem;
-}
-
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: rgb(7, 128, 233);
-  color: beige;
-  width: 100%;
+/* General sidenav styling */
+mat-sidenav {
+  background-color: #fff;
+  width: 250px;
 }
 
 mat-sidenav-container {
   height: 100%;
 }
 
-mat-sidenav {
-  padding-top: 3.5rem;
-  width: 250px;
-  @media screen and (min-width: 600px) {
+/* Styles for mat-list-item to center icons and text */
+mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Push expand icon to the right */
+  padding: 0.5rem 1rem; /* Add padding for a better look */
+}
+
+mat-icon {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 24px; /* Ensure icons are consistently sized */
+}
+
+span {
+  flex: 1; /* Ensures the text takes up the space between icons */
+  font-size: 1rem; /* Adjust text size if needed */
+}
+
+.expand-icon {
+  margin-left: auto; /* Push expand icon to the far right */
+  font-size: 20px; /* Slightly smaller for a subtle look */
+}
+
+/* Submenu styling */
+.submenu {
+  padding-left: 2rem; /* Indent submenu items */
+}
+
+.submenu a[mat-list-item] {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem; /* Slightly smaller font for submenu */
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 600px) {
+  mat-sidenav {
     padding-top: 4rem;
   }
-
-  .entry {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-  }
-}
-
-mat-sidenav-content {
-  padding-top: 4rem;
-  flex: 1 1 auto;
-}
-
-.content {
-  padding: 1rem;
 }

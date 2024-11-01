@@ -1,44 +1,28 @@
-h1 {
-  padding: 0 1rem;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Controls space between cards */
+  justify-content: space-evenly;
 }
 
-h2 {
-  padding: 1rem;
+.content-card {
+  width: 180px; /* Fixed width for uniformity */
+  height: 150px; /* Fixed height for uniformity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  margin: 5px;
 }
 
-mat-toolbar {
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  background-color: rgb(7, 128, 233);
-  color: beige;
-  width: 100%;
+.content-card:hover {
+  box-shadow: 0 4px 8px rgba(23, 4, 194, 0.2);
 }
 
-mat-sidenav-container {
-  height: 100%;
-}
-
-mat-sidenav {
-  padding-top: 3.5rem;
-  width: 250px;
-  @media screen and (min-width: 600px) {
-    padding-top: 4rem;
-  }
-
-  .entry {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-  }
-}
-
-mat-sidenav-content {
-  padding-top: 4rem;
-  flex: 1 1 auto;
-}
-
-.content {
-  padding: 1rem;
+.icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
 }

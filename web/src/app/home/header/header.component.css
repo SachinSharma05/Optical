@@ -2,10 +2,6 @@ h1 {
   padding: 0 1rem;
 }
 
-h2 {
-  padding: 1rem;
-}
-
 mat-toolbar {
   position: fixed;
   top: 0;
@@ -13,4 +9,10 @@ mat-toolbar {
   background-color: rgb(7, 128, 233);
   color: beige;
   width: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+mat-icon{
+  color: #fff;
 }

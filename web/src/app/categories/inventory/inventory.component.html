@@ -1,0 +1,76 @@
+<div class="inventory-form">
+  <h2>Inventory Master</h2>
+
+  <div class="form-grid">
+    <!-- Product Type and Add button -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Product Type</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let type of productTypes" [value]="type">{{ type.productName }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary">ADD</button>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Stock Reorder Point</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <!-- Category Name and Add button -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Category Name</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let category of categoryTypes" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary">ADD</button>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Stock Limit</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <!-- Sub Category Name and Add button -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Sub Category Name</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let subCategory of subCategoriesType" [value]="subCategory">{{ subCategory }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary">ADD</button>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Tax Category</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let tax of taxCategories" [value]="tax">{{ tax }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Product Name -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Product Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <!-- Selling Price -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Selling Price</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+
+    <!-- Stock In Hand -->
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Stock In Hand</mat-label>
+      <input matInput type="number" />
+    </mat-form-field>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="primary">Update</button>
+    <button mat-raised-button color="warn">Delete</button>
+    <button mat-raised-button color="accent">Reset</button>
+    <button mat-raised-button color="accent">Close</button>
+  </div>
+</div>

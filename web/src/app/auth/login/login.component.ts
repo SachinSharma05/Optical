@@ -32,7 +32,7 @@ export class LoginComponent {
         next: (response: any) => {
           if (response.token) {
             localStorage.setItem('token', response.token);
-            this.router.navigate(['./dashboard']);
+            this.router.navigate(['./home']);
           } else {
             this.errorMessage = 'Invalid login response.';
           }
