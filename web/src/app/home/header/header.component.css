@@ -16,3 +16,11 @@ mat-toolbar {
 mat-icon{
   color: #fff;
 }
+
+.spacer {
+  flex: 1;
+}
+
+.toggle-icon, .profile-icon, .logout-icon {
+  margin-right: 10px;
+}

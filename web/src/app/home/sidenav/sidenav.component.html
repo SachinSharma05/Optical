@@ -72,8 +72,6 @@
         <mat-icon class="expand-icon">{{ expandedSection === 'reports' ? 'expand_less' : 'expand_more' }}</mat-icon>
       </mat-list-item>
       <mat-nav-list *ngIf="expandedSection === 'reports'" class="submenu">
-        <a mat-list-item>Stock In</a>
-        <a mat-list-item>Stock Out</a>
         <a mat-list-item>Stock In List</a>
         <a mat-list-item>Stock Out List</a>
         <a mat-list-item>Present Stock List</a>
@@ -88,6 +86,7 @@
       </mat-list-item>
       <mat-nav-list *ngIf="expandedSection === 'tools'" class="submenu">
         <a mat-list-item>Backup Database</a>
+        <a mat-list-item>Restore Database</a>
         <a mat-list-item>Change Password</a>
         <a mat-list-item>Register User</a>
       </mat-nav-list>

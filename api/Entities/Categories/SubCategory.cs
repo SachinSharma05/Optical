@@ -1,10 +1,15 @@
-﻿namespace api.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace api.Entities
 {
     public class SubCategory
     {
+        [Key]
+        [Column("id")]
         public int Id { get; set; }
-        public string Type { get; set; }
-        public string CategoryName { get; set; }
+
+        [Column("subCategory_name")]
         public string SubCategoryName { get; set; }
     }
 }

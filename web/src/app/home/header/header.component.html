@@ -3,5 +3,16 @@
     <mat-icon>menu</mat-icon>
   </button>
   <h1>Opto Care Inventory & Billing System</h1>
+  <span class="spacer"></span>
+
+  <!-- Profile icon on the right side -->
+  <button mat-icon-button aria-label="Profile icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <!-- Logout icon -->
+  <button mat-icon-button (click)="onLogout()" aria-label="Logout icon">
+    <mat-icon>logout</mat-icon>
+  </button>
 </mat-toolbar>
 

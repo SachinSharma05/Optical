@@ -24,6 +24,8 @@ export class DashboardComponent {
     { label: 'Stock Out', icon: '/assets/Product.png', link: 'stock-out' },
     { label: 'Sunglass', icon: '/assets/sunglass.png', link: 'sunglass' },
     { label: 'Solution', icon: '/assets/Category.ico', link: 'solution' },
+    { label: 'Sales Person Details', icon: '/assets/admissions-icon1.png', link: 'sales-person-account-details' },
+    { label: 'Send SMS', icon: '/assets/SMS1.png', link: 'send.sms' },
   ];
   cols: number | undefined;
 

@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "F:\\Optical\\api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\entities\\categories\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:entities\\categories\\producttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\catgories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\catgories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\auth\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Optical\\api\\Entities\\Categories\\InventoryMaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Entities\\Categories\\InventoryMaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\data\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\data\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,92 +38,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductType.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Entities\\Categories\\ProductType.cs",
-              "RelativeDocumentMoniker": "Entities\\Categories\\ProductType.cs",
-              "ToolTip": "F:\\Optical\\api\\Entities\\Categories\\ProductType.cs",
-              "RelativeToolTip": "Entities\\Categories\\ProductType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "InventoryMaster.cs",
+              "DocumentMoniker": "F:\\Optical\\api\\Entities\\Categories\\InventoryMaster.cs",
+              "RelativeDocumentMoniker": "Entities\\Categories\\InventoryMaster.cs",
+              "ToolTip": "F:\\Optical\\api\\Entities\\Categories\\InventoryMaster.cs",
+              "RelativeToolTip": "Entities\\Categories\\InventoryMaster.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:48:26.642Z",
+              "WhenOpened": "2024-11-03T08:47:15.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Data\\Auth\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Auth\\AuthRepository.cs",
-              "ToolTip": "F:\\Optical\\api\\Data\\Auth\\AuthRepository.cs",
-              "RelativeToolTip": "Data\\Auth\\AuthRepository.cs",
-              "ViewState": "AgIAAEcAAAAAZmZmZmYiwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:37:57.131Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "F:\\Optical\\api\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
               "ToolTip": "F:\\Optical\\api\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAewAcAAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAApwBEAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:25:02.158Z"
+              "WhenOpened": "2024-11-02T10:55:51.955Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "F:\\Optical\\api\\Data\\Catgories\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "Data\\Catgories\\CategoryRepository.cs",
               "ToolTip": "F:\\Optical\\api\\Data\\Catgories\\CategoryRepository.cs",
               "RelativeToolTip": "Data\\Catgories\\CategoryRepository.cs",
-              "ViewState": "AgIAAAcAAACQmZmZmZklwBQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAnJmZmZnZv6oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T13:01:05.516Z"
+              "WhenOpened": "2024-10-30T13:01:05.516Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Data\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "Abstraction\\Data\\ICategoryRepository.cs",
               "ToolTip": "F:\\Optical\\api\\Abstraction\\Data\\ICategoryRepository.cs",
               "RelativeToolTip": "Abstraction\\Data\\ICategoryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T12:13:58.397Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "Abstraction\\Services\\ICategoryService.cs",
-              "ToolTip": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
-              "RelativeToolTip": "Abstraction\\Services\\ICategoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T12:09:29.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
-              "ToolTip": "F:\\Optical\\api\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAswBIAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T11:26:40.539Z"
+              "WhenOpened": "2024-10-30T12:13:58.397Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -137,9 +99,36 @@
               "RelativeDocumentMoniker": "Services\\CategoryService.cs",
               "ToolTip": "F:\\Optical\\api\\Services\\CategoryService.cs",
               "RelativeToolTip": "Services\\CategoryService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAkwCAAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwD8AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T12:14:50.402Z"
+              "WhenOpened": "2024-10-30T12:14:50.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICategoryService.cs",
+              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
+              "RelativeDocumentMoniker": "Abstraction\\Services\\ICategoryService.cs",
+              "ToolTip": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
+              "RelativeToolTip": "Abstraction\\Services\\ICategoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T12:09:29.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "F:\\Optical\\api\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "F:\\Optical\\api\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAA2wIUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T11:26:40.539Z",
+              "EditorCaption": ""
             }
           ]
         }

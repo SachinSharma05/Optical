@@ -18,15 +18,17 @@ import { StockInComponent } from './stock/stock-in/stock-in.component';
 import { StockOutComponent } from './stock/stock-out/stock-out.component';
 import { SunglassComponent } from './sales/sunglass/sunglass.component';
 import { SolutionComponent } from './sales/solution/solution.component';
+import { AuthGuard } from '../auth.guard';
+import { SalesPersonAccountDetailsComponent } from './sales/sales-person-account-details/sales-person-account-details.component';
+import { SendSmsComponent } from './settings/send.sms/send.sms.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
-    path: 'home',
-    component: HomeComponent,
+    path: 'home', component: HomeComponent, canActivate: [AuthGuard],
     children: [
       { path: '', component: DashboardComponent }, // Default route for HomeComponent
-      { path: 'inventory', component: InventoryComponent }, // Child route for CategoryComponent
+      { path: 'inventory', component: InventoryComponent },
       { path: 'customer', component: CustomerComponent },
       { path: 'power-details', component: PowerDetailsComponent },
       { path: 'contact-lens', component: ContactLensComponent },
@@ -41,6 +43,8 @@ const routes: Routes = [
       { path: 'stock-out', component: StockOutComponent },
       { path: 'sunglass', component: SunglassComponent },
       { path: 'solution', component: SolutionComponent },
+      { path: 'sales-person-account-details', component: SalesPersonAccountDetailsComponent },
+      { path: 'send.sms', component: SendSmsComponent },
     ]
   },
   { path: '', redirectTo: '/login', pathMatch: 'full' },  // Default route redirects to login page

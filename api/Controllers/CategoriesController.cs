@@ -1,4 +1,5 @@
 ﻿using api.Abstraction.Services;
+using api.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -89,6 +90,48 @@ namespace api.Controllers
             {
                 throw;
             }
+        }
+
+        [HttpPost("CreateProduct")]
+        public async Task<IActionResult> CreateProduct(ProductType product)
+        {
+            var result = await _categoryService.CreateProduct(product);
+            return Ok(result);
+        }
+
+        [HttpPost("CreateCategory")]
+        public async Task<IActionResult> CreateCategory(Category category)
+        {
+            var result = await _categoryService.CreateCategory(category);
+            return Ok(result);
+        }
+
+        [HttpPost("CreateSubCategory")]
+        public async Task<IActionResult> CreateSubCategory(SubCategory subCategory)
+        {
+            var result = await _categoryService.CreateSubCategory(subCategory);
+            return Ok(result);
+        }
+
+        [HttpPost("CreateTaxCategory")]
+        public async Task<IActionResult> CreateTaxCategory(TaxCategory taxCategory)
+        {
+            var result = await _categoryService.CreateTaxCategory(taxCategory);
+            return Ok(result);
+        }
+
+        [HttpPost("CreateInventory")]
+        public async Task<IActionResult> CreateInventory(InventoryMaster inventory)
+        {
+            var result = await _categoryService.CreateInventory(inventory);
+            return Ok(result);
+        }
+
+        [HttpGet("GetInventoryList")]
+        public async Task<IActionResult> GetInventoryList()
+        {
+            var result = await _categoryService.GetInventoryList();
+            return Ok(result);
         }
     }
 }

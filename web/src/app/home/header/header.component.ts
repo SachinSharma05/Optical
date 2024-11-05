@@ -4,6 +4,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../../../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,11 @@ export class HeaderComponent implements OnInit {
   isMobile = false;
   isCollapsed = true;
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService) {}
+
+  onLogout() {
+    this.authService.logout();
+  }
 
   ngOnInit() {
     this.breakpointObserver

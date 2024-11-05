@@ -14,6 +14,9 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDialogContent } from '@angular/material/dialog';
+import { MatDialogActions } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +47,12 @@ import { StockInComponent } from './stock/stock-in/stock-in.component';
 import { StockOutComponent } from './stock/stock-out/stock-out.component';
 import { SunglassComponent } from './sales/sunglass/sunglass.component';
 import { SolutionComponent } from './sales/solution/solution.component';
+import { SalesPersonAccountDetailsComponent } from './sales/sales-person-account-details/sales-person-account-details.component';
+import { SendSmsComponent } from './settings/send.sms/send.sms.component';
+import { AddProductTypeDialogComponent } from './dialogs/add-product-type-dialog/add-product-type-dialog.component';
+import { AddCategoryTypeDialogComponent } from './dialogs/add-category-type-dialog/add-category-type-dialog.component';
+import { AddSubCategoryDialogComponent } from './dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
+import { AddTaxCategoryDialogComponent } from './dialogs/add-tax-category-dialog/add-tax-category-dialog.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +82,13 @@ import { SolutionComponent } from './sales/solution/solution.component';
     StockInComponent,
     StockOutComponent,
     SunglassComponent,
-    SolutionComponent
+    SolutionComponent,
+    SalesPersonAccountDetailsComponent,
+    SendSmsComponent,
+    AddProductTypeDialogComponent,
+    AddCategoryTypeDialogComponent,
+    AddSubCategoryDialogComponent,
+    AddTaxCategoryDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -90,7 +105,10 @@ import { SolutionComponent } from './sales/solution/solution.component';
     MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogContent,
+    MatDialogActions,
+    MatTableDataSource
   ],
   providers: [
     provideAnimationsAsync()

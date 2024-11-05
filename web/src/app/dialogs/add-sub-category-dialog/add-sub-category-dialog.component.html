@@ -1,0 +1,15 @@
+<h5 mat-dialog-title>Add Category Type</h5>
+<mat-dialog-content>
+  <form [formGroup]="subCategoryTypeForm">
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Sub Category Name</mat-label>
+        <input matInput formControlName="subCategoryName" required>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>
