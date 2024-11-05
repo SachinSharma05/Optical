@@ -14,9 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
-import { MatDialogContent } from '@angular/material/dialog';
-import { MatDialogActions } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';      // Add MatTableModule
+import { MatDialogModule } from '@angular/material/dialog';    // Add MatDialogModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -106,9 +105,8 @@ import { AddTaxCategoryDialogComponent } from './dialogs/add-tax-category-dialog
     ReactiveFormsModule,
     MatGridListModule,
     MatSelectModule,
-    MatDialogContent,
-    MatDialogActions,
-    MatTableDataSource
+    MatTableModule,         // Correct import
+    MatDialogModule         // Correct import
   ],
   providers: [
     provideAnimationsAsync()
