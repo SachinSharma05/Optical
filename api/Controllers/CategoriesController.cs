@@ -128,9 +128,27 @@ namespace api.Controllers
         }
 
         [HttpGet("GetInventoryList")]
-        public async Task<IActionResult> GetInventoryList()
+        public async Task<IActionResult> GetInventoryList(int page, int pageSize)
         {
-            var result = await _categoryService.GetInventoryList();
+            var result = await _categoryService.GetInventoryList(page, pageSize);
+            return Ok(new
+            {
+                items = result.Items,
+                totalItems = result.TotalItems
+            });
+        }
+
+        [HttpDelete("DeleteInventoryById")]
+        public async Task<IActionResult> DeleteInventoryById(string id)
+        {
+            var result = await _categoryService.DeleteInventoryById(id);
+            return Ok(result);
+        }
+
+        [HttpPut("UpdateProduct")]
+        public async Task<IActionResult> UpdateProduct(InventoryMaster update)
+        {
+            var result = await _categoryService.UpdateProduct(update);
             return Ok(result);
         }
     }

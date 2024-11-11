@@ -1,1 +1,100 @@
-<p>customer works!</p>
+<mat-sidenav-container style="background-color: #fff;">
+  <mat-sidenav-content>
+    <div class="main-container">
+      <div class="customerForm">
+        <h4>Create Customer</h4>
+
+        <form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+          <div class="form-grid">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="customerName" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Contact</mat-label>
+              <input matInput formControlName="contactNo" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Alternate Contact</mat-label>
+              <input matInput formControlName="alternateContact" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Age</mat-label>
+              <input matInput formControlName="age" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Gender</mat-label>
+              <input matInput formControlName="gender" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Remarks</mat-label>
+              <input matInput formControlName="remarks" />
+            </mat-form-field>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" type="submit">Save</button>
+            <button mat-raised-button color="primary" type="button" (click)="updateCustomer()">Update</button>
+            <button mat-raised-button color="warn" type="button" (click)="deleteCustomer()">Delete</button>
+            <button mat-raised-button color="accent" type="reset">Reset</button>
+            <button mat-raised-button color="accent" type="button" (click)="close()">Close</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Inventory List (Right Side) -->
+      <div class="customerList">
+        <!-- <h4>Inventory</h4> -->
+        <table mat-table [dataSource]="customerItems" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="customerName">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let item of customerList"> {{item.customerName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="contactNo">
+            <th mat-header-cell *matHeaderCellDef> Contact </th>
+            <td mat-cell *matCellDef="let item of customerList"> {{item.contactNo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="alternateContact">
+            <th mat-header-cell *matHeaderCellDef> Alternate Contact </th>
+            <td mat-cell *matCellDef="let item of customerList"> {{item.alternateContact}} </td>
+          </ng-container>
+
+          <!-- Edit Button Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-button color="primary" (click)="editCustomerList(item)">Edit</button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="pageIndex"
+          (page)="onPageChange($event)">
+        </mat-paginator>
+      </div>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

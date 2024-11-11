@@ -59,9 +59,14 @@ namespace api.Services
             return await _categoryRepository.GetCategoryType();
         }
 
-        public async Task<InventoryMaster> GetInventoryList()
+        public async Task<PaginatedResponse<InventoryMaster>> GetInventoryList(int page, int pageSize)
         {
-            return await _categoryRepository.GetInventoryList();
+            return await _categoryRepository.GetInventoryList(page, pageSize);
+        }
+
+        public async Task<bool> DeleteInventoryById(string id)
+        {
+            return await _categoryRepository.DeleteInventoryById(id);
         }
 
         public async Task<IEnumerable<ProductType>> GetProductType()
@@ -79,6 +84,9 @@ namespace api.Services
             return await _categoryRepository.GetTaxCategories();
         }
 
-
+        public async Task<bool> UpdateProduct(InventoryMaster update)
+        {
+            return await _categoryRepository.UpdateProduct(update);
+        }
     }
 }

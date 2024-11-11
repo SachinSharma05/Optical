@@ -1,49 +1,83 @@
 <mat-sidenav-container style="background-color: #fff;">
   <mat-sidenav-content>
     <div class="main-container">
-
-      <!-- Inventory Form (Left Side) -->
       <div class="inventoryForm">
-        <h2>Inventory Master</h2>
+        <h4>Inventory Master</h4>
 
         <form [formGroup]="inventoryForm" (ngSubmit)="saveInventory()">
           <div class="form-grid">
-            <!-- Product Type -->
+            <!-- Product Type with Add Button -->
+            <div class="field-with-button">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Product Type</mat-label>
+                <mat-select formControlName="productType">
+                  <mat-option *ngFor="let type of productTypes" [value]="type.productName">
+                    {{ type.productName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-button color="primary" (click)="openAddProductTypeDialog()">ADD</button>
+            </div>
+
+            <!-- Category Name with Add Button -->
+            <div class="field-with-button">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Category Name</mat-label>
+                <mat-select formControlName="categoryName">
+                  <mat-option *ngFor="let category of categoryTypes" [value]="category.categoryName">
+                    {{ category.categoryName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-button color="primary" (click)="openAddCategoryTypeDialog()">ADD</button>
+            </div>
+
+            <!-- Sub Category Name with Add Button -->
+            <div class="field-with-button">
+              <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Sub Category Name</mat-label>
+                <mat-select formControlName="subCategoryName">
+                  <mat-option *ngFor="let subCategory of subCategoriesType" [value]="subCategory.subCategoryName">
+                    {{ subCategory.subCategoryName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-button color="primary" (click)="openAddSubCategoryDialog()">ADD</button>
+            </div>
+
+            <!-- Additional Fields (Without Add Buttons) -->
             <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Product Type</mat-label>
-              <mat-select formControlName="product_type">
-                <mat-option *ngFor="let type of productTypes" [value]="type.productName">
-                  {{ type.productName }}
+              <mat-label>Product Name</mat-label>
+              <input matInput formControlName="productName" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Selling Price</mat-label>
+              <input matInput formControlName="sellingPrice" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Stock Reorder Point</mat-label>
+              <input matInput formControlName="stockReorderPoint" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Stock Limit</mat-label>
+              <input matInput formControlName="stockLimit" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Tax Category (%)</mat-label>
+              <mat-select formControlName="taxCategory">
+                <mat-option *ngFor="let tax of taxCategories" [value]="tax.taxPercent">
+                  {{ tax.taxPercent }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <button mat-button color="primary" (click)="openAddProductTypeDialog()">ADD</button>
 
-            <!-- Stock Reorder Point -->
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Stock Reorder Point</mat-label>
-              <input matInput formControlName="stock_reorder_point" />
-            </mat-form-field>
-
-            <!-- Other form fields go here as in your original code -->
-            <!-- Category Name, Stock Limit, Sub Category Name, etc. -->
-
-            <!-- Product Name -->
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Product Name</mat-label>
-              <input matInput formControlName="product_name" />
-            </mat-form-field>
-
-            <!-- Selling Price -->
-            <mat-form-field appearance="outline" class="form-field">
-              <mat-label>Selling Price</mat-label>
-              <input matInput formControlName="selling_price" />
-            </mat-form-field>
-
-            <!-- Stock In Hand -->
             <mat-form-field appearance="outline" class="form-field">
               <mat-label>Stock In Hand</mat-label>
-              <input matInput formControlName="stock_in_hand" />
+              <input matInput formControlName="stockInHand" />
             </mat-form-field>
           </div>
 
@@ -56,34 +90,50 @@
             <button mat-raised-button color="accent" type="button" (click)="close()">Close</button>
           </div>
         </form>
+
       </div>
 
-      <!-- Inventory List (Right Side) -->
-      <div class="inventoryList">
-        <h2>Saved Inventory Items</h2>
-        <table mat-table [dataSource]="inventoryItems" class="mat-elevation-z8">
-          <!-- Define columns here -->
-          <ng-container matColumnDef="productName">
-            <th mat-header-cell *matHeaderCellDef> Product Name </th>
-            <td mat-cell *matCellDef="let item"> {{item.productName}} </td>
-          </ng-container>
+    <!-- Inventory List (Right Side) -->
+    <div class="inventoryList">
+      <!-- <h4>Inventory</h4> -->
+      <table mat-table [dataSource]="inventoryItems" class="mat-elevation-z8">
 
-          <ng-container matColumnDef="stock">
-            <th mat-header-cell *matHeaderCellDef> Stock </th>
-            <td mat-cell *matCellDef="let item"> {{item.stock}} </td>
-          </ng-container>
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef> Product Name </th>
+          <td mat-cell *matCellDef="let item of inventoryItems"> {{item.productName}} </td>
+        </ng-container>
 
-          <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef> Price </th>
-            <td mat-cell *matCellDef="let item"> {{item.price}} </td>
-          </ng-container>
+        <ng-container matColumnDef="categoryName">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let item of inventoryItems"> {{item.categoryName}} </td>
+        </ng-container>
 
-          <!-- Add more columns as needed -->
+        <ng-container matColumnDef="sellingPrice">
+          <th mat-header-cell *matHeaderCellDef> Price </th>
+          <td mat-cell *matCellDef="let item of inventoryItems"> {{item.sellingPrice}} </td>
+        </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
+        <ng-container matColumnDef="stockInHand">
+          <th mat-header-cell *matHeaderCellDef> Stock </th>
+          <td mat-cell *matCellDef="let item of inventoryItems"> {{item.stockInHand}} </td>
+        </ng-container>
+
+        <!-- Edit Button Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button color="primary" (click)="editInventoryItem(item)">Edit</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="pageIndex"
+        (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
 
     </div>
   </mat-sidenav-content>

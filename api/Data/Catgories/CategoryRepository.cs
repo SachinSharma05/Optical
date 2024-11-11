@@ -1,6 +1,7 @@
 ﻿using api.Abstraction.Data;
 using api.Entities;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace api.Data.Catgories
 {
@@ -40,16 +41,16 @@ namespace api.Data.Catgories
             {
                 var inventories = new InventoryMaster
                 {
-                    product_type = inventory.product_type,
-                    category_name = inventory.category_name,
-                    sub_category_name = inventory.sub_category_name,
-                    product_name = inventory.product_name,
-                    selling_price = inventory.selling_price,
-                    stock_reorder_point = inventory.stock_reorder_point,
-                    stock_limit = inventory.stock_limit,
-                    tax_category = inventory.tax_category,
-                    stock_in_hand = inventory.stock_in_hand,
-                    created_on = DateTime.Now
+                    productType = inventory.productType,
+                    categoryName = inventory.categoryName,
+                    subCategoryName = inventory.subCategoryName,
+                    productName = inventory.productName,
+                    sellingPrice = inventory.sellingPrice,
+                    stockReorderPoint = inventory.stockReorderPoint,
+                    stockLimit = inventory.stockLimit,
+                    taxCategory = inventory.taxCategory,
+                    stockInHand = inventory.stockInHand,
+                    createdOn = DateTime.Now
                 };
 
                 _context.InventoryMaster.Add(inventories);
@@ -135,33 +136,36 @@ namespace api.Data.Catgories
             }
         }
 
-        public async Task<List<InventoryMaster>> GetInventoryList()
+        public async Task<PaginatedResponse<InventoryMaster>> GetInventoryList(int page, int pageSize)
         {
             try
             {
-                List<InventoryMaster> list = new List<InventoryMaster>();
+                int skip = (page - 1) * pageSize;
+                var paginatedData = await _context.InventoryMaster.Skip(skip).Take(pageSize).ToListAsync();
 
-                var result = await _context.InventoryMaster.ToListAsync();
-
-                foreach (var item in result)
+                int totalItems = await _context.InventoryMaster.CountAsync();
+                var response = new PaginatedResponse<InventoryMaster>
                 {
-                    var response = new InventoryMaster
+                    Items = paginatedData.Select(item => new InventoryMaster
                     {
-                        product_type = item.product_type,
-                        category_name = item.category_name,
-                        sub_category_name = item.sub_category_name,
-                        product_name = item.product_name,
-                        selling_price = item.selling_price,
-                        stock_reorder_point = item.stock_reorder_point,
-                        stock_limit = item.stock_limit,
-                        stock_in_hand = item.stock_in_hand,
-                        tax_category = item.tax_category
-                    };
+                        Id = item.Id,
+                        productType = item.productType,
+                        categoryName = item.categoryName,
+                        subCategoryName = item.subCategoryName,
+                        productName = item.productName,
+                        sellingPrice = item.sellingPrice,
+                        stockReorderPoint = item.stockReorderPoint,
+                        stockLimit = item.stockLimit,
+                        taxCategory = item.taxCategory,
+                        stockInHand = item.stockInHand,
+                        createdOn = item.createdOn
+                    }).ToList(),
+                    TotalItems = totalItems,
+                    Page = page,
+                    PageSize = pageSize
+                };
 
-                    list.Add(response);
-                }
-
-                return list;
+                return response;
             }
             catch (Exception)
             {
@@ -169,6 +173,26 @@ namespace api.Data.Catgories
             }
         }
 
+        public async Task<bool> DeleteInventoryById(string id)
+        {
+            try
+            {
+                var result = await _context.InventoryMaster.Where(x => x.Id == Convert.ToInt32(id)).FirstOrDefaultAsync();
+                if (result != null)
+                {
+                    _context.InventoryMaster.Remove(result);
+                    await _context.SaveChangesAsync();
+
+                    return true;
+                } 
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public async Task<IEnumerable<ProductType>> GetProductType()
         {
@@ -199,6 +223,40 @@ namespace api.Data.Catgories
             try
             {
                 return await _context.Tax_Category.ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> UpdateProduct(InventoryMaster update)
+        {
+            var existingInventory = await _context.InventoryMaster
+            .Where(x => x.Id == update.Id)
+            .FirstOrDefaultAsync();
+
+            if (existingInventory == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                existingInventory.productType = update.productType;
+                existingInventory.categoryName = update.categoryName;
+                existingInventory.subCategoryName = update.subCategoryName;
+                existingInventory.productName = update.productName;
+                existingInventory.sellingPrice = update.sellingPrice;
+                existingInventory.stockReorderPoint = update.stockReorderPoint;
+                existingInventory.stockLimit = update.stockLimit;
+                existingInventory.taxCategory = update.taxCategory;
+                existingInventory.stockInHand = update.stockInHand;
+
+                _context.InventoryMaster.Update(existingInventory);
+                await _context.SaveChangesAsync();
+
+                return true;
             }
             catch (Exception)
             {

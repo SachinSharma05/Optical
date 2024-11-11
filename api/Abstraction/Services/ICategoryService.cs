@@ -15,6 +15,8 @@ namespace api.Abstraction.Services
         Task<bool> CreateTaxCategory(TaxCategory taxCategory);
 
         Task<bool> CreateInventory(InventoryMaster inventory);
-        Task<InventoryMaster> GetInventoryList();
+        Task<PaginatedResponse<InventoryMaster>> GetInventoryList(int page, int pageSize);
+        Task<bool> DeleteInventoryById(string id);
+        Task<bool> UpdateProduct(InventoryMaster update);
     }
 }

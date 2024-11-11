@@ -16,6 +16,8 @@ namespace api.Data
         public DbSet<SubCategory> SubCategory { get; set; }
         public DbSet<TaxCategory> Tax_Category { get; set; }
         public DbSet<InventoryMaster> InventoryMaster { get; set; }
+        public DbSet<CustomerMaster> CustomerMaster { get; set; }
+        public DbSet<PowerDetails> PowerDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

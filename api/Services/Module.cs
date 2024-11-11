@@ -8,6 +8,8 @@ namespace api.Services
         {
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ICustomerPowerService, CustomerPowerService>();
         }
     }
 }

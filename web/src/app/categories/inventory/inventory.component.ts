@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
 import { AddSubCategoryDialogComponent } from '../../dialogs/add-sub-category-dialog/add-sub-category-dialog.component';
 import { AddCategoryTypeDialogComponent } from '../../dialogs/add-category-type-dialog/add-category-type-dialog.component';
 import { AddProductTypeDialogComponent } from '../../dialogs/add-product-type-dialog/add-product-type-dialog.component';
+import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 interface ItemType {
   id: number;
@@ -33,6 +35,7 @@ interface TaxCategoryType {
 }
 
 interface Inventory {
+  id: string;
   productType: string;
   categoryName: string;
   subCategoryName: string;
@@ -44,60 +47,83 @@ interface Inventory {
   stockInHand: string;
 }
 
+interface PaginatedInventoryResponse {
+  items: Inventory[];
+  totalItems: number;
+}
+
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  productTypes: ItemType[] = []; // Initialize as an empty array
-  categoryTypes: CategoryType[] = []; // Initialize as an empty array
-  subCategoriesType: SubCategoryType[] = []; // Initialize as an empty array
-  taxCategories: TaxCategoryType[] = []; // Initialize as an empty array
-
+  productTypes: ItemType[] = [];
+  categoryTypes: CategoryType[] = [];
+  subCategoriesType: SubCategoryType[] = [];
+  taxCategories: TaxCategoryType[] = [];
   inventoryForm: FormGroup;
 
-  inventoryItems = new MatTableDataSource([
-    { productName: 'Product 1', stock: 50, price: 100 },
-    { productName: 'Product 2', stock: 30, price: 150 }
-  ]);
+  selectedInventoryId: string | null = null;
 
-  displayedColumns: string[] = ['productName', 'stock', 'price'];
+  // inventoryItems = new MatTableDataSource<Inventory>([]);
+  displayedColumns: string[] = ['productName', 'categoryName', 'sellingPrice', 'stockInHand', 'actions'];
+
+  inventoryItems: Inventory[] = [];
+  totalItems = 0;
+  pageSize = 10;
+  pageIndex = 0;
 
   constructor(
+    private router: Router,
     private http: HttpClient,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private cdr: ChangeDetectorRef
   ) {
     this.inventoryForm = this.fb.group({
-      product_type: ['', Validators.required],
-      category_name: ['', Validators.required],
-      sub_category_name: ['', Validators.required],
-      product_name: ['', Validators.required],
-      selling_price: ['', Validators.required],
-      stock_reorder_point: ['', Validators.required],
-      stock_limit: ['', Validators.required],
-      tax_category: ['', Validators.required],
-      stock_in_hand: ['', Validators.required]
+      productType: ['', Validators.required],
+      categoryName: ['', Validators.required],
+      subCategoryName: ['', Validators.required],
+      productName: ['', Validators.required],
+      sellingPrice: ['', Validators.required],
+      stockReorderPoint: ['', Validators.required],
+      stockLimit: ['', Validators.required],
+      taxCategory: ['', Validators.required],
+      stockInHand: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
-    this.loadData();
-  }
-
-  private loadData(): void {
-    const loadFunctions = [
-      this.loadProductTypes(),
+    this.loadProductTypes(),
       this.loadCategoryTypes(),
       this.loadSubCategoryTypes(),
-      this.loadTaxCategories()
-    ];
-    Promise.all(loadFunctions).catch(error => {
-      console.error('Error loading data:', error);
-    });
+      this.loadTaxCategories(),
+      this.loadInventoryProduct(this.pageIndex + 1, this.pageSize)
   }
+
+  editInventoryItem(item: Inventory): void {
+    this.selectedInventoryId = item.id;  // Check if `item` contains expected properties and values
+
+    this.inventoryForm.reset();
+    this.inventoryForm.patchValue({
+      id: item.id,
+      productType: item.productType,
+      categoryName: item.categoryName,
+      subCategoryName: item.subCategoryName,
+      productName: item.productName,
+      sellingPrice: item.sellingPrice,
+      stockReorderPoint: item.stockReorderPoint,
+      stockLimit: item.stockLimit,
+      taxCategory: item.taxCategory,
+      stockInHand: item.stockInHand,
+    });
+
+    this.cdr.detectChanges();
+    console.log('Form values after patch:', this.inventoryForm.value); // Check the form values
+  }
+
 
   loadProductTypes(): void {
     this.http.get<ItemType[]>(`${environment.apiUrl}/Categories/GetProductType`)
@@ -145,6 +171,25 @@ export class InventoryComponent implements OnInit {
           console.error('Error loading product types:', error);
         }
       );
+  }
+
+  loadInventoryProduct(page: number, pageSize: number): void {
+    this.http.get<PaginatedInventoryResponse>(`${environment.apiUrl}/Categories/GetInventoryList?page=${page}&pageSize=${pageSize}`)
+      .subscribe(
+        (data) => {
+          this.inventoryItems = data.items;
+          this.totalItems = data.totalItems;
+        },
+        (error) => {
+          console.error('Error loading inventory product:', error);
+        }
+      );
+  }
+
+  onPageChange(event: PageEvent): void {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.loadInventoryProduct(this.pageIndex + 1, this.pageSize);
   }
 
   private handleError(type: string, error: any): void {
@@ -213,11 +258,11 @@ export class InventoryComponent implements OnInit {
     }
 
     const payload: Inventory = this.inventoryForm.value;
-
     this.http.post(`${environment.apiUrl}/Categories/CreateInventory`, payload)
       .subscribe(
         () => {
-          this.snackBar.open('Inventory saved successfully', 'Close', { duration: 2000 });
+          this.snackBar.open('Inventory saved successfully', 'Close', { duration: 2000 },);
+          this.loadInventoryProduct(this.pageIndex + 1, this.pageSize);
           this.inventoryForm.reset(); // Reset the form after successful submission
         },
         error => this.handleError('inventory', error)
@@ -226,14 +271,58 @@ export class InventoryComponent implements OnInit {
 
   // Placeholder methods for update and delete functionalities
   updateInventory(): void {
-    // Implement update logic here
+    if (!this.inventoryForm.valid) {
+      this.snackBar.open('Please fill in all required fields.', 'Close', { duration: 2000 });
+      return;
+    }
+
+    // Check if selectedInventoryId is null or undefined
+    if (!this.selectedInventoryId) {
+      this.snackBar.open('No inventory item selected for update.', 'Close', { duration: 2000 });
+      return;
+    }
+
+    // Set the id from the selectedInventoryId, which is now guaranteed to be a string
+    const payload: Inventory = this.inventoryForm.value;
+    payload.id = this.selectedInventoryId;
+
+    // Call the PUT API to update the inventory item
+    this.http.put(`${environment.apiUrl}/Categories/UpdateProduct`, payload)
+      .subscribe(
+        () => {
+          this.snackBar.open('Inventory updated successfully', 'Close', { duration: 2000 });
+          // Reload the inventory list after updating
+          this.loadInventoryProduct(this.pageIndex + 1, this.pageSize);
+          // Reset the form after successful update
+          this.inventoryForm.reset();
+          this.selectedInventoryId = null; // Reset selected inventory item
+        },
+        error => this.handleError('inventory', error)
+      );
   }
 
   deleteInventory(): void {
-    // Implement delete logic here
+    if (!this.selectedInventoryId) {
+      this.snackBar.open('No inventory item selected for deletion.', 'Close', { duration: 2000 });
+      return;
+    }
+
+    // Call your backend API to delete the item
+    const payload = { id: this.selectedInventoryId };
+
+    this.http.delete(`${environment.apiUrl}/Categories/DeleteInventoryById?id=${this.selectedInventoryId}`)
+    .subscribe(
+      () => {
+        this.snackBar.open('Item deleted successfully', 'Close', { duration: 2000 });
+        this.inventoryForm.reset();
+        this.selectedInventoryId = null; // Reset the selected item ID after deletion
+        this.loadInventoryProduct(this.pageIndex + 1, this.pageSize); // Refresh the inventory list after deletion
+      },
+      error => this.handleError('inventory', error)
+    );
   }
 
   close(): void {
-
+    this.router.navigate([`/home`]);
   }
 }

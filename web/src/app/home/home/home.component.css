@@ -8,20 +8,29 @@ app-header {
   height: 60px; /* Adjust as needed */
   width: 100%;
   z-index: 10;
+  position: fixed; /* Make the header fixed to stay at the top */
+  top: 0;
 }
 
 .content {
   display: flex;
   flex: 1;
+  margin-top: 60px; /* Add margin to offset the fixed header */
 }
 
 app-sidenav {
   width: 250px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 60px); /* Makes sidenav height the same as the viewport height minus header */
+  position: fixed; /* Keep the sidenav fixed */
+  top: 0px; /* Aligns the sidenav with the bottom of the header */
+  overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 .main-content {
+  margin-left: 250px; /* To offset the sidenav */
   flex: 1;
-  overflow-y: auto;
+  overflow-y: auto; /* Allow scrolling in main content */
   padding: 16px;
+  margin-top: 0px; /* Offset for the fixed header */
+  height: calc(100vh - 100px); /* Ensures that the main content takes up the remaining height */
 }
