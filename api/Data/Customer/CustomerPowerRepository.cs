@@ -1,6 +1,7 @@
 ﻿using api.Abstraction.Data;
 using api.Entities;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 
 namespace api.Data.Customer
 {
@@ -13,38 +14,64 @@ namespace api.Data.Customer
             _context = context;
         }
 
-        public async Task<bool> CreatePowerDetails(PowerDetails powerDetails)
+        public async Task<bool> CreatePowerDetails(CustomerMaster customerDetails, PowerDetails powerDetails)
         {
             try
             {
+                var customer = await _context.CustomerMaster.FirstOrDefaultAsync(x => x.contactNo == customerDetails.contactNo);
+
+                if (customer == null)
+                {
+                    customer = new CustomerMaster
+                    {
+                        customerName = customerDetails.customerName,
+                        address = customerDetails.address,
+                        contactNo = customerDetails.contactNo,
+                        alternateContact = customerDetails.alternateContact,
+                        age = customerDetails.age,
+                        gender = customerDetails.gender,
+                        email = customerDetails.email,
+                        remarks = customerDetails.remarks
+                    };
+
+                    _context.CustomerMaster.Add(customer);
+                    await _context.SaveChangesAsync();
+
+                    int newCustomerId = powerDetails.customerId;
+                    Console.WriteLine($"New customer added with ID: {newCustomerId}");
+                }
+                else
+                {
+                    Console.WriteLine("Customer already exists, skipping save operation.");
+                }
+
                 var powerDetail = new PowerDetails
                 {
-                    RSph = powerDetails.RSph,
-                    RCyl = powerDetails.RCyl,
-                    RAxis = powerDetails.RAxis,
-                    RVn = powerDetails.RVn,
-                    RAdd = powerDetails.RAdd,
-                    LSph = powerDetails.LSph,
-                    LCyl = powerDetails.LCyl,
-                    LAxis = powerDetails.LAxis,
-                    LVn = powerDetails.LVn,
-                    LAdd = powerDetails.LAdd,
-                    PD = powerDetails.PD,
-                    RefBy = powerDetails.RefBy,
-                    LensType1 = powerDetails.LensType1,
-                    LensType2 = powerDetails.LensType2,
-                    LensType3 = powerDetails.LensType3,
-                    LensType4 = powerDetails.LensType4,
-                    CheckUpDate = powerDetails.CheckUpDate,
-                    Remarks = powerDetails.Remarks,
-                    PrgRight = powerDetails.PrgRight,
-                    PrgLeft = powerDetails.PrgLeft,
-                    PPLeft = powerDetails.PPLeft,
-                    PPRight = powerDetails.PPRight,
-                    PPAdd = powerDetails.PPAdd
+                    customerId = customer != null ? customer.Id : powerDetails.customerId,
+                    rsph = powerDetails.rsph,
+                    rcyl = powerDetails.rcyl,
+                    raxis = powerDetails.raxis,
+                    rvn = powerDetails.rvn,
+                    radd = powerDetails.radd,
+                    lsph = powerDetails.lsph,
+                    lcyl = powerDetails.lcyl,
+                    laxis = powerDetails.laxis,
+                    lvn = powerDetails.lvn,
+                    ladd = powerDetails.ladd,
+                    pd = powerDetails.pd,
+                    refBy = powerDetails.refBy,
+                    lensType = powerDetails.lensType,
+                    bookingDate = powerDetails.bookingDate,
+                    remarks = powerDetails.remarks,
+                    prgRight = powerDetails.prgRight,
+                    prgLeft = powerDetails.prgLeft,
+                    ppLeft = powerDetails.ppLeft,
+                    ppRight = powerDetails.ppRight,
+                    ppAdd = powerDetails.ppAdd,
+                    createdOn = DateTime.Now
                 };
 
-                _context.PowerDetails.Add(powerDetails);
+                _context.CustomerPower.Add(powerDetail);
                 await _context.SaveChangesAsync();
 
                 return true;
@@ -59,10 +86,13 @@ namespace api.Data.Customer
         {
             try
             {
-                var result = await _context.PowerDetails.Where(x => x.Id == id).FirstOrDefaultAsync();
+                var result = await _context.CustomerPower.Where(x => x.Id == id).FirstOrDefaultAsync();
 
-                _context.PowerDetails.Remove(result);
-                await _context.SaveChangesAsync();
+                if(result != null)
+                {
+                    _context.CustomerPower.Remove(result);
+                    await _context.SaveChangesAsync();
+                }
 
                 return true;
             }
@@ -72,67 +102,72 @@ namespace api.Data.Customer
             }
         }
 
-        public async Task<PowerDetails> PowerDetailById(int id)
+        public async Task<PaginatedResponse<PowerDetailsList>> PowerDetailsList(int page, int pageSize)
         {
             try
             {
-                var result = await _context.PowerDetails.Where(x => x.Id == id).FirstOrDefaultAsync();
-                if (result != null)
-                    return result;
-                else
-                    return null;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+                int skip = (page - 1) * pageSize;
+                int totalItems = await _context.CustomerPower.CountAsync();
 
-        public async Task<IEnumerable<PowerDetails>> PowerDetailsList()
-        {
-            try
-            {
-                var result = await _context.PowerDetails.ToListAsync();
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+                string query = $@"select cp.id, cp.customerId, cm.customerName, cm.contactNo, cm.alternateContact,
+                                cp.rsph, cp.rcyl, cp.raxis, cp.rvn,
+                                cp.lsph, cp.lcyl, cp.laxis, cp.lvn, cp.radd, cp.ladd,
+                                cp.pd, cp.refBy, cp.lensType, cp.bookingDate, cp.prgRight, cp.prgLeft,
+                                cp.ppRight, cp.ppLeft, cp.ppAdd, cp.remarks, cp.createdOn
+                                from customerMaster cm
+                                inner join customerPower cp on cm.id = cp.customerId";
 
-        public async Task<bool> UpdatePowerDetails(PowerDetails powerDetails)
-        {
-            try
-            {
-                var powerDetail = new PowerDetails
+                var result = await _context.CustomerPowerList.FromSqlRaw<PowerDetailsList>(query).ToListAsync();
+
+                var response = new PaginatedResponse<PowerDetailsList>
                 {
-                    RSph = powerDetails.RSph,
-                    RCyl = powerDetails.RCyl,
-                    RAxis = powerDetails.RAxis,
-                    RVn = powerDetails.RVn,
-                    RAdd = powerDetails.RAdd,
-                    LSph = powerDetails.LSph,
-                    LCyl = powerDetails.LCyl,
-                    LAxis = powerDetails.LAxis,
-                    LVn = powerDetails.LVn,
-                    LAdd = powerDetails.LAdd,
-                    PD = powerDetails.PD,
-                    RefBy = powerDetails.RefBy,
-                    LensType1 = powerDetails.LensType1,
-                    LensType2 = powerDetails.LensType2,
-                    LensType3 = powerDetails.LensType3,
-                    LensType4 = powerDetails.LensType4,
-                    CheckUpDate = powerDetails.CheckUpDate,
-                    Remarks = powerDetails.Remarks,
-                    PrgRight = powerDetails.PrgRight,
-                    PrgLeft = powerDetails.PrgLeft,
-                    PPLeft = powerDetails.PPLeft,
-                    PPRight = powerDetails.PPRight,
-                    PPAdd = powerDetails.PPAdd
+                    Items = result,
+                    TotalItems = totalItems,
+                    Page = page,
+                    PageSize = pageSize
                 };
 
-                _context.PowerDetails.Update(powerDetails);
+                return response;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<bool> UpdatePowerDetails(CustomerMaster customerDTO, PowerDetails powerDetails)
+        {
+            var existingCustomer = await _context.CustomerPower.Where(x => x.Id == powerDetails.Id).FirstOrDefaultAsync();
+
+            if (existingCustomer == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                existingCustomer.rsph = powerDetails.rsph;
+                existingCustomer.rcyl = powerDetails.rcyl;
+                existingCustomer.raxis = powerDetails.raxis;
+                existingCustomer.rvn = powerDetails.rvn;
+                existingCustomer.radd = powerDetails.radd;
+                existingCustomer.lsph = powerDetails.lsph;
+                existingCustomer.lcyl = powerDetails.lcyl;
+                existingCustomer.laxis = powerDetails.laxis;
+                existingCustomer.lvn = powerDetails.lvn;
+                existingCustomer.ladd = powerDetails.ladd;
+                existingCustomer.pd = powerDetails.pd;
+                existingCustomer.refBy = powerDetails.refBy;
+                existingCustomer.lensType = powerDetails.lensType;
+                existingCustomer.bookingDate = powerDetails.bookingDate;
+                existingCustomer.remarks = powerDetails.remarks;
+                existingCustomer.prgRight = powerDetails.prgRight;
+                existingCustomer.prgLeft = powerDetails.prgLeft;
+                existingCustomer.ppLeft = powerDetails.ppLeft;
+                existingCustomer.ppRight = powerDetails.ppRight;
+                existingCustomer.ppAdd = powerDetails.ppAdd;
+
+                _context.CustomerPower.Update(existingCustomer);
                 await _context.SaveChangesAsync();
 
                 return true;

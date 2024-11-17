@@ -1,6 +1,7 @@
 ﻿using api.Abstraction.Data;
 using api.Abstraction.Services;
 using api.Entities;
+using Newtonsoft.Json.Linq;
 
 namespace api.Services
 {
@@ -13,9 +14,9 @@ namespace api.Services
             _customerPowerRepository = customerPowerRespository;   
         }
 
-        public async Task<bool> CreatePowerDetails(PowerDetails powerDetails)
+        public async Task<bool> CreatePowerDetails(CustomerMaster customerDTO, PowerDetails powerDetails)
         {
-            return await _customerPowerRepository.CreatePowerDetails(powerDetails);
+            return await _customerPowerRepository.CreatePowerDetails(customerDTO, powerDetails);
         }
 
         public async Task<bool> DeletePowerDetail(int id)
@@ -23,19 +24,14 @@ namespace api.Services
             return await _customerPowerRepository.DeletePowerDetail(id);
         }
 
-        public async Task<PowerDetails> PowerDetailById(int id)
+        public async Task<PaginatedResponse<PowerDetailsList>> PowerDetailsList(int page, int pageSize)
         {
-            return await _customerPowerRepository.PowerDetailById(id);
+            return await _customerPowerRepository.PowerDetailsList(page, pageSize);
         }
 
-        public async Task<IEnumerable<PowerDetails>> PowerDetailsList()
+        public async Task<bool> UpdatePowerDetails(CustomerMaster customerDTO, PowerDetails powerDetailsDTO)
         {
-            return await _customerPowerRepository.PowerDetailsList();
-        }
-
-        public async Task<bool> UpdatePowerDetails(PowerDetails powerDetails)
-        {
-            return await _customerPowerRepository.UpdatePowerDetails(powerDetails);
+            return await _customerPowerRepository.UpdatePowerDetails(customerDTO, powerDetailsDTO);
         }
     }
 }

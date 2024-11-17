@@ -1,0 +1,91 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  overflow-x: auto; /* Enables scrolling if the form becomes too wide */
+}
+
+.customerPowerForm {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customerPowerList {
+  max-width: 100%;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* Adjust height as needed */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h4 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-sections {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Three sections side by side */
+  gap: 15px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.small-input {
+  width: 100%; /* Ensures the field spans the column width */
+  max-width: 300px;
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 0px;
+}
+
+.full-width {
+  grid-column: span 1;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+textarea {
+  resize: none;
+}
+
+@media (max-width: 1200px) {
+  .form-sections {
+    grid-template-columns: repeat(2, 1fr); /* Adjust to two columns for smaller screens */
+  }
+}
+
+@media (max-width: 800px) {
+  .form-sections {
+    grid-template-columns: 1fr; /* Adjust to one column for narrow screens */
+  }
+}

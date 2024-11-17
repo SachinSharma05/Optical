@@ -1,1 +1,462 @@
-<p>contact-lens works!</p>
+<!-- <div class="container">
+  <form id="main-form" action="/submit" method="POST">
+
+  </form>
+  <div class="box">
+    <div class="input-group">
+      <label for="id">ID</label>
+      <input type="text" id="id" placeholder="ID" />
+    </div>
+    <div class="input-group">
+      <label for="custName">Name</label>
+      <input type="text" id="custName" placeholder="Cust_Name" />
+    </div>
+    <div class="input-group">
+      <label for="mobile">Mobile</label>
+      <input type="text" id="mobile" placeholder="Mobile" />
+    </div>
+    <div class="input-group">
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" placeholder="Phone" />
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="input-group">
+      <label for="bookingDate">Booking Date</label>
+      <input type="date" id="bookingDate" />
+    </div>
+    <div class="input-group">
+      <label for="deliveryDate">Delivery Date</label>
+      <input type="date" id="deliveryDate" />
+    </div>
+    <div class="input-group">
+      <label>Present Stock</label>
+      <input type="text" id="phone" placeholder="Present Stock" />
+    </div>
+  </div>
+
+  <div class="horizontal-form">
+    <div class="form-item">
+      <label for="productName">Product</label>
+      <input type="text" id="productName" placeholder="Name" />
+    </div>
+    <div class="form-item">
+      <label for="quantity">Qty</label>
+      <input type="number" id="quantity" placeholder="Quantity" />
+    </div>
+    <div class="form-item">
+      <label for="price">Price</label>
+      <input type="text" id="price" placeholder="Price" />
+    </div>
+    <div class="form-item">
+      <label for="gross">Gross</label>
+      <input type="text" id="gross" placeholder="Gross" />
+    </div>
+    <div class="form-item">
+      <label for="scheme">Scheme</label>
+      <input type="text" id="scheme" placeholder="Scheme" />
+    </div>
+    <div class="form-item">
+      <label for="total">Total</label>
+      <input type="text" id="total" placeholder="Total" />
+    </div>
+    <div class="form-item">
+      <label for="cgst">CGST</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+    </div>
+    <div class="form-item">
+      <label for="sgst">SGST</label>
+      <input type="text" id="sgst" placeholder="SGST" />
+    </div>
+
+    <div class="form-item">
+      <button id="addButton" class="form-button">Add</button>
+      <button id="clearButton" class="form-button">Clear</button>
+    </div>
+    <div class="product-list">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Total</th>
+            <th>Gross</th>
+            <th>CGST</th>
+            <th>SGST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="power-form">
+  <div class="power-row header-row">
+    <div></div>
+    <div class="right-header">RIGHT</div>
+    <div class="left-header">LEFT</div>
+  </div>
+
+  <div class="power-row">
+    <label>POWER</label>
+    <div class="inputs-group">
+      <label>SPH</label>
+      <label>CYL</label>
+      <label>AXIS</label>
+      <label>VN</label>
+    </div>
+    <div class="inputs-group">
+      <label>SPH</label>
+      <label>CYL</label>
+      <label>AXIS</label>
+      <label>VN</label>
+    </div>
+  </div>
+
+  <div class="power-row">
+    <label>D.V.</label>
+    <div class="inputs-group">
+      <input type="text" placeholder="SPH" />
+      <input type="text" placeholder="CYL" />
+      <input type="text" placeholder="AXIS" />
+      <input type="text" placeholder="V/N" />
+    </div>
+    <div class="inputs-group">
+      <input type="text" placeholder="SPH" />
+      <input type="text" placeholder="CYL" />
+      <input type="text" placeholder="AXIS" />
+      <input type="text" placeholder="V/N" />
+    </div>
+  </div>
+
+  <div class="power-row">
+    <label>ADD</label>
+    <div class="inputs-group">
+      <input type="text" placeholder="SPH" />
+    </div>
+    <div class="inputs-group">
+      <input type="text" placeholder="SPH" />
+    </div>
+  </div>
+
+  <div class="power-row">
+    <label>P.D.</label>
+    <input type="text" class="wide-input" placeholder="Enter P.D." />
+    <label>REF BY</label>
+    <input type="text" class="wide-input" placeholder="REF BY" />
+  </div>
+
+  <div class="power-row">
+    <label>Lens Type</label>
+    <select class="wide-input">
+      <option value="">Select Lens Type</option>
+      <option value="single-vision">Single Vision</option>
+      <option value="bifocal">Bifocal</option>
+      <option value="progressive">Progressive</option>
+    </select>
+  </div>
+
+  <div class="power-row remarks-row">
+    <label>Remarks</label>
+    <textarea placeholder="Enter remarks"></textarea>
+    <button class="change-power-btn">Change Power</button>
+  </div>
+</div>
+
+<div class="amount-calculation">
+  <div class="form-item">
+    <label for="cgst">Gross Amount</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">Advance</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">CGST Tax</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">Scheme Amount</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">Due Amount</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">SGST Tax</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">Net Amount</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+  <div class="form-item">
+    <label for="cgst">Customer Code</label>
+      <input type="text" id="cgst" placeholder="CGST" />
+  </div>
+</div>
+ -->
+
+<div class="container">
+  <form id="main-form" action="/submit" method="POST">
+
+    <!-- Customer Details Section -->
+    <div class="box">
+      <div class="input-group">
+        <label for="id">ID</label>
+        <input type="text" id="id" name="customer_id" placeholder="ID" />
+      </div>
+      <div class="input-group">
+        <label for="custName">Name</label>
+        <input type="text" id="custName" name="customer_name" placeholder="Customer Name" />
+      </div>
+      <div class="input-group">
+        <label for="mobile">Mobile</label>
+        <input type="text" id="mobile" name="mobile" placeholder="Mobile" />
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone" />
+      </div>
+    </div>
+
+    <!-- Booking Details Section -->
+    <div class="box">
+      <div class="input-group">
+        <label for="bookingDate">Booking Date</label>
+        <input type="date" id="bookingDate" name="booking_date" />
+      </div>
+      <div class="input-group">
+        <label for="deliveryDate">Delivery Date</label>
+        <input type="date" id="deliveryDate" name="delivery_date" />
+      </div>
+      <div class="input-group">
+        <label for="stock">Present Stock</label>
+        <input type="text" id="stock" name="present_stock" placeholder="Present Stock" />
+      </div>
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="horizontal-form">
+      <div class="form-item">
+        <label for="productName">Product</label>
+        <input type="text" id="productName" name="product_name" placeholder="Product Name" />
+      </div>
+      <div class="form-item">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Quantity" />
+      </div>
+      <div class="form-item">
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" placeholder="Price" />
+      </div>
+      <div class="form-item">
+        <label for="gross">Gross</label>
+        <input type="text" id="gross" name="gross" placeholder="Gross" />
+      </div>
+      <div class="form-item">
+        <label for="scheme">Scheme</label>
+        <input type="text" id="scheme" name="scheme" placeholder="Scheme" />
+      </div>
+      <div class="form-item">
+        <label for="total">Total</label>
+        <input type="text" id="total" name="total" placeholder="Total" />
+      </div>
+      <div class="form-item">
+        <button id="addButton" class="form-button">Add</button>
+      </div>
+      <div class="form-item">
+        <button id="clearButton" class="form-button">Clear</button>
+      </div>
+    </div>
+
+    <!-- Product Details List -->
+    <div class="product-list">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Total</th>
+            <th>Gross</th>
+            <th>CGST</th>
+            <th>SGST</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Power Section -->
+    <div class="power-form">
+      <div class="power-row header-row">
+        <div></div>
+        <div class="right-header">RIGHT</div>
+        <div class="left-header">LEFT</div>
+      </div>
+
+      <div class="power-row">
+        <label>POWER</label>
+        <div class="inputs-group">
+          <label>SPH</label>
+          <label>CYL</label>
+          <label>AXIS</label>
+          <label>VN</label>
+        </div>
+        <div class="inputs-group">
+          <label>SPH</label>
+          <label>CYL</label>
+          <label>AXIS</label>
+          <label>VN</label>
+        </div>
+      </div>
+
+      <div class="power-row">
+        <label>D.V.</label>
+        <div class="inputs-group">
+          <input type="text" placeholder="SPH" />
+          <input type="text" placeholder="CYL" />
+          <input type="text" placeholder="AXIS" />
+          <input type="text" placeholder="V/N" />
+        </div>
+        <div class="inputs-group">
+          <input type="text" placeholder="SPH" />
+          <input type="text" placeholder="CYL" />
+          <input type="text" placeholder="AXIS" />
+          <input type="text" placeholder="V/N" />
+        </div>
+      </div>
+
+      <div class="power-row">
+        <label>ADD</label>
+        <div class="inputs-group">
+          <input type="text" placeholder="SPH" />
+        </div>
+        <div class="inputs-group">
+          <input type="text" placeholder="SPH" />
+        </div>
+      </div>
+
+      <div class="power-row">
+        <label>P.D.</label>
+        <input type="text" class="wide-input" placeholder="Enter P.D." />
+        <label>REF BY</label>
+        <input type="text" class="wide-input" placeholder="REF BY" />
+      </div>
+
+      <div class="power-row">
+        <label>Lens Type</label>
+        <select class="wide-input">
+          <option value="">Select Lens Type</option>
+          <option value="single-vision">Single Vision</option>
+          <option value="bifocal">Bifocal</option>
+          <option value="progressive">Progressive</option>
+        </select>
+      </div>
+
+      <div class="power-row remarks-row">
+        <label>Remarks</label>
+        <textarea placeholder="Enter remarks"></textarea>
+        <button class="change-power-btn">Change Power</button>
+      </div>
+    </div>
+
+    <!-- Amount Calculation Section -->
+    <div class="amount-calculation">
+      <div class="form-row">
+        <div class="form-item">
+          <label for="gross">Gross</label>
+          <input type="text" id="gross" name="gross" placeholder="Gross" />
+        </div>
+        <div class="form-item">
+          <label for="cgst">Advance</label>
+          <input type="text" id="advance" name="advance" placeholder="advance" />
+        </div>
+        <div class="form-item">
+          <label for="cgst">Scheme</label>
+          <input type="text" id="scheme" name="scheme" placeholder="scheme" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-item">
+          <label for="cgst">Due</label>
+          <input type="text" id="due" name="due" placeholder="due" />
+        </div>
+        <div class="form-item">
+          <label for="cgst">CGST</label>
+          <input type="text" id="cgstTax" name="cgstTax" placeholder="CGST" />
+        </div>
+        <div class="form-item">
+          <label for="cgst">SGST</label>
+          <input type="text" id="sgstTax" name="sgstTax" placeholder="SGST" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-item">
+          <label for="cgst">Net</label>
+          <input type="text" id="net" name="net" placeholder="net" />
+        </div>
+        <div class="form-item">
+          <label for="cgst">Customer</label>
+          <input type="text" id="code" name="code" placeholder="code" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Mode -->
+    <div class="payment-mode">
+      <h6>Payment Mode</h6>
+      <div class="form-item horizontal">
+        <input type="radio" id="payment-cash" name="payment-mode">
+        <label for="payment-cash">Payment By Cash</label>
+        <input type="radio" id="payment-card" name="payment-mode">
+        <label for="payment-card">Payment By Card</label>
+      </div>
+    </div>
+
+    <!-- Search Row -->
+    <div class="search-row">
+      <div class="form-group">
+        <label for="search-name">Search Name</label>
+        <input type="text" id="search-name" />
+      </div>
+      <div class="form-group">
+        <label for="search-mobile">Search Mobile</label>
+        <input type="text" id="search-mobile" />
+      </div>
+      <div class="form-group">
+        <label for="search-phone">Search Phone</label>
+        <input type="text" id="search-phone" />
+      </div>
+      <div class="form-group">
+        <label for="search-lens">Search Lens Type</label>
+        <input type="text" id="search-lens" />
+      </div>
+      <button class="btn btn-red">Show Record</button>
+      <button class="btn btn-blue">Refresh Grid</button>
+    </div>
+
+
+  </form>
+</div>

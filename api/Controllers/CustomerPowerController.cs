@@ -1,7 +1,10 @@
 ﻿using api.Abstraction.Services;
 using api.Entities;
+using Azure.Core;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace api.Controllers
 {
@@ -17,34 +20,60 @@ namespace api.Controllers
         }
 
         [HttpGet("PowerDetailsList")]
-        public async Task<IActionResult> PowerDetailsList()
+        public async Task<IActionResult> PowerDetailsList(int page, int pageSize)
         {
-            var result = await _customerPowerService.PowerDetailsList();
-            return Ok(result);
-        }
-
-        [HttpGet("PowerDetailById")]
-        public async Task<IActionResult> PowerDetailById(int id)
-        {
-            var result = await _customerPowerService.PowerDetailById(id);
+            var result = await _customerPowerService.PowerDetailsList(page, pageSize);
             return Ok(result);
         }
 
         [HttpPost("CreatePowerDetails")]
-        public async Task<IActionResult> CreatePowerDetails(PowerDetails create)
+        public async Task<IActionResult> CreatePowerDetails([FromBody] CreatePowerRequest payload)
         {
-            var result = await _customerPowerService.CreatePowerDetails(create);
-            return Ok(result);
+            try
+            {
+                // Parse the payload into respective DTOs
+                var customerDetails = payload.CustomerDetails;
+                var powerDetails = payload.PowerDetails;
+
+                // Process and save data
+                var result = await _customerPowerService.CreatePowerDetails(customerDetails, powerDetails);
+
+                if (result)
+                {
+                    return Ok(new { message = "Data saved successfully." });
+                }
+
+                return BadRequest(new { message = "Failed to save data." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred.", details = ex.Message });
+            }
         }
 
         [HttpPut("UpdatePowerDetails")]
-        public async Task<IActionResult> UpdatePowerDetails(PowerDetails update)
+        public async Task<IActionResult> UpdatePowerDetails([FromBody] CreatePowerRequest payload)
         {
-            var result = await _customerPowerService.UpdatePowerDetails(update);
-            return Ok(result);
+            try
+            {
+                var customerDetails = payload.CustomerDetails;
+                var powerDetails = payload.PowerDetails;
+
+                var result = await _customerPowerService.UpdatePowerDetails(customerDetails, powerDetails);
+                if (result)
+                {
+                    return Ok(new { message = "Data updated successfully." });
+                }
+
+                return BadRequest(new { message = "Failed to save data." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "An error occurred.", details = ex.Message });
+            }
         }
 
-        [HttpPost("DeletePowerDetail")]
+        [HttpDelete("DeletePowerDetail")]
         public async Task<IActionResult> DeletePowerDetail(int id)
         {
             var result = await _customerPowerService.DeletePowerDetail(id);

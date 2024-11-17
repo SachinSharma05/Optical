@@ -17,7 +17,8 @@ namespace api.Data
         public DbSet<TaxCategory> Tax_Category { get; set; }
         public DbSet<InventoryMaster> InventoryMaster { get; set; }
         public DbSet<CustomerMaster> CustomerMaster { get; set; }
-        public DbSet<PowerDetails> PowerDetails { get; set; }
+        public DbSet<PowerDetails> CustomerPower { get; set; }
+        public DbSet<PowerDetailsList> CustomerPowerList { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

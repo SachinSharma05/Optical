@@ -1,0 +1,316 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  justify-content: space-between;
+}
+
+#main-form {
+  display: flex; /* Makes the form a flex container */
+  flex-wrap: wrap; /* Ensures form items wrap when needed */
+  gap: 0px; /* Adds spacing between child elements */
+  width: 100%;
+}
+
+#main-form .box {
+  flex: 1;
+  width: 30%;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+#main-form .horizontal-form,
+#main-form .power-form,
+#main-form .product-list {
+  flex: 1; /* Makes all sections flexible in width */
+  width: 40%; /* Ensures sections don't exceed half the container */
+  margin: 5px; /* Adds space between sections */
+  box-sizing: border-box; /* Includes padding and border in width */
+}
+
+#main-form .box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 20%;
+}
+
+#main-form .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#main-form .input-group label {
+  font-size: 14px;
+  width: 100px;
+}
+
+#main-form .input-group input {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#main-form .horizontal-form {
+  display: flex;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  padding: 5px; /* Spacing between fields */
+  gap: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#main-form .form-item {
+  display: flex;
+  flex-direction: column; /* Aligns label above input */
+  width: 90px; /* Adjust width as needed */
+  margin-bottom: 10px;
+}
+
+#main-form .form-item label {
+  margin-bottom: 5px;
+}
+
+#main-form .form-item input {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#main-form .product-list {
+  width: 100%; /* Ensures the table spans the full container width */
+}
+
+#main-form .product-list table {
+  width: 100%;
+  border-collapse: collapse; /* Removes gaps between table cells */
+  font-size: 14px;
+}
+
+#main-form .product-list th, .product-list td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#main-form .product-list th {
+  background-color: #f2f2f2; /* Light gray header background */
+  font-weight: bold;
+}
+
+#main-form .product-list tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+#main-form .power-form {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  max-width: 630px;
+}
+
+#main-form .power-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#main-form .header-row {
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+#main-form .right-header,
+#main-form .left-header {
+  text-align: center;
+  width: 50%;
+}
+
+#main-form .inputs-group {
+  display: flex;
+  gap: 5px;
+  width: 50%;
+}
+
+#main-form .inputs-group input {
+  width: 50px;
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#main-form label {
+  width: 80px;
+  font-size: 14px;
+  text-align: left;
+  margin-right: 10px;
+}
+
+#main-form .wide-input {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+#main-form textarea {
+  flex: 1;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: none;
+}
+
+#main-form .remarks-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+#main-form .change-power-btn {
+  padding: 10px;
+  background-color: #0033cc;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#main-form .change-power-btn:hover {
+  background-color: #002699;
+}
+
+#addButton {
+  background-color: blue;
+  color: white; /* Makes text visible */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#clearButton {
+  background-color: red;
+  color: white; /* Makes text visible */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#main-form .amount-calculation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#main-form .amount-calculation .form-item {
+  width: 40%; /* Adjust width for better responsiveness */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#main-form .amount-calculation .form-item label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+#main-form .amount-calculation .form-item input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#main-form .payment-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#main-form .payment-mode h6 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#main-form .payment-mode .form-item .horizontal {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the radio buttons and labels */
+}
+
+#main-form .payment-mode input[type="radio"] {
+  margin-right: 5px;
+}
+
+#main-form .payment-mode label {
+  font-size: 14px;
+  color: #333;
+}
+
+.search-row {
+  border: 1px solid #ccc;
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  align-items: center;
+  padding: 10px; /* Spacing between groups */
+  gap: 20px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  align-items: center; /* Align label and input vertically */
+  gap: 10px; /* Space between label and input */
+}
+
+.form-group label {
+  font-size: 14px;
+  white-space: nowrap; /* Prevent label text from wrapping */
+}
+
+.form-group input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: auto; /* Adjust width automatically */
+  min-width: 150px; /* Optional: Set a minimum width for consistency */
+}
+
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.btn-red {
+  background-color: red;
+}
+
+.btn-blue {
+  background-color: blue;
+}

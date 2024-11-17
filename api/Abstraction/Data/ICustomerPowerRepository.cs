@@ -1,13 +1,13 @@
 ﻿using api.Entities;
+using Newtonsoft.Json.Linq;
 
 namespace api.Abstraction.Data
 {
     public interface ICustomerPowerRepository
     {
-        Task<IEnumerable<PowerDetails>> PowerDetailsList();
-        Task<PowerDetails> PowerDetailById(int id);
-        Task<bool> CreatePowerDetails(PowerDetails powerDetails);
-        Task<bool> UpdatePowerDetails(PowerDetails powerDetails);
+        Task<PaginatedResponse<PowerDetailsList>> PowerDetailsList(int page, int pageSize);
+        Task<bool> CreatePowerDetails(CustomerMaster customerDTO, PowerDetails powerDetails);
+        Task<bool> UpdatePowerDetails(CustomerMaster customerDTO, PowerDetails powerDetailsDTO);
         Task<bool> DeletePowerDetail(int id);
     }
 }

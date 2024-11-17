@@ -114,7 +114,6 @@ export class CustomerComponent implements OnInit{
     }
 
     const payload: Customer = this.customerForm.value;
-    console.log(payload);
     this.http.post(`${environment.apiUrl}/Customer/CreateCustomer`, payload)
       .subscribe(
         () => {

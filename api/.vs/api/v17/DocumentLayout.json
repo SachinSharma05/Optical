@@ -3,48 +3,8 @@
   "WorkspaceRootPath": "F:\\Optical\\api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\customer\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\customer\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\catgories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\catgories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\entities\\customer\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:entities\\customer\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\services\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:services\\module.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\data\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\data\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\data\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\data\\icustomerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\services\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\abstraction\\services\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:abstraction\\services\\icustomerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|f:\\optical\\api\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A64419B9-F7D8-4E4A-AD62-04E1FE19653C}|api.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,149 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Entities\\Customer\\Customer.cs",
-              "RelativeDocumentMoniker": "Entities\\Customer\\Customer.cs",
-              "ToolTip": "F:\\Optical\\api\\Entities\\Customer\\Customer.cs",
-              "RelativeToolTip": "Entities\\Customer\\Customer.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBAAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:45:39.401Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Module.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Services\\Module.cs",
-              "RelativeDocumentMoniker": "Services\\Module.cs",
-              "ToolTip": "F:\\Optical\\api\\Services\\Module.cs",
-              "RelativeToolTip": "Services\\Module.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:42:57.575Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Data\\Catgories\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Catgories\\CategoryRepository.cs",
-              "ToolTip": "F:\\Optical\\api\\Data\\Catgories\\CategoryRepository.cs",
-              "RelativeToolTip": "Data\\Catgories\\CategoryRepository.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAA8wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:42:38.811Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Data\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "Abstraction\\Data\\ICategoryRepository.cs",
-              "ToolTip": "F:\\Optical\\api\\Abstraction\\Data\\ICategoryRepository.cs",
-              "RelativeToolTip": "Abstraction\\Data\\ICategoryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:41:45.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Module.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Data\\Module.cs",
-              "RelativeDocumentMoniker": "Data\\Module.cs",
-              "ToolTip": "F:\\Optical\\api\\Data\\Module.cs",
-              "RelativeToolTip": "Data\\Module.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:40:33.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "Abstraction\\Services\\ICategoryService.cs",
-              "ToolTip": "F:\\Optical\\api\\Abstraction\\Services\\ICategoryService.cs",
-              "RelativeToolTip": "Abstraction\\Services\\ICategoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:37:46.664Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerRepository.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Data\\Customer\\CustomerRepository.cs",
-              "RelativeDocumentMoniker": "Data\\Customer\\CustomerRepository.cs",
-              "ToolTip": "F:\\Optical\\api\\Data\\Customer\\CustomerRepository.cs",
-              "RelativeToolTip": "Data\\Customer\\CustomerRepository.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAcwHQAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:07:43.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ICustomerRepository.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Data\\ICustomerRepository.cs",
-              "RelativeDocumentMoniker": "Abstraction\\Data\\ICustomerRepository.cs",
-              "ToolTip": "F:\\Optical\\api\\Abstraction\\Data\\ICustomerRepository.cs",
-              "RelativeToolTip": "Abstraction\\Data\\ICustomerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:07:25.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CustomerService.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Services\\CustomerService.cs",
-              "RelativeDocumentMoniker": "Services\\CustomerService.cs",
-              "ToolTip": "F:\\Optical\\api\\Services\\CustomerService.cs",
-              "RelativeToolTip": "Services\\CustomerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:07:03.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ICustomerService.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Abstraction\\Services\\ICustomerService.cs",
-              "RelativeDocumentMoniker": "Abstraction\\Services\\ICustomerService.cs",
-              "ToolTip": "F:\\Optical\\api\\Abstraction\\Services\\ICustomerService.cs",
-              "RelativeToolTip": "Abstraction\\Services\\ICustomerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:06:52.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "F:\\Optical\\api\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CustomerController.cs",
-              "ToolTip": "F:\\Optical\\api\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "Controllers\\CustomerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABOAAAAAAAAAA==",
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "F:\\Optical\\api\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "F:\\Optical\\api\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAEwBMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T10:06:27.99Z",
+              "WhenOpened": "2024-11-15T12:40:44.142Z",
               "EditorCaption": ""
             }
           ]

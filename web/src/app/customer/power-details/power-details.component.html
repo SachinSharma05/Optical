@@ -1,1 +1,192 @@
-<p>power-details works!</p>
+<mat-sidenav-container style="background-color: #fff;">
+  <mat-sidenav-content>
+    <div class="main-container">
+      <div class="customerPowerForm">
+        <h4>Customer Power Details</h4>
+
+        <form [formGroup]="customerPowerForm" (ngSubmit)="saveCustomerPower()">
+          <div class="form-sections">
+            <!-- Left Section: Customer Details -->
+            <div class="form-section">
+              <div class="section-title">Customer Details</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Customer Name</mat-label>
+                <input matInput formControlName="customerName"/>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Mobile</mat-label>
+                <input matInput formControlName="contactNo" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Phone</mat-label>
+                <input matInput formControlName="alternateContact" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input full-width">
+                <mat-label>Address</mat-label>
+                <textarea matInput formControlName="address"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="form-section">
+              <div class="section-title">Right Eye Power</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>RSPH</mat-label>
+                <input matInput formControlName="rsph"/>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>RCYL</mat-label>
+                <input matInput formControlName="rcyl" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>RAXIS</mat-label>
+                <input matInput formControlName="raxis" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>RVN</mat-label>
+                <input matInput formControlName="rvn" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>RADD</mat-label>
+                <input matInput formControlName="radd" />
+              </mat-form-field>
+            </div>
+            <div class="form-section">
+              <div class="section-title">Left Eye Power</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>LSPH</mat-label>
+                <input matInput formControlName="lsph" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>LCYL</mat-label>
+                <input matInput formControlName="lcyl" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>LAXIS</mat-label>
+                <input matInput formControlName="laxis" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>LVN</mat-label>
+                <input matInput formControlName="lvn" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>LADD</mat-label>
+                <input matInput formControlName="ladd" />
+              </mat-form-field>
+            </div>
+            <div class="form-section">
+              <div class="section-title">Other Power Details</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>PD</mat-label>
+                <input matInput formControlName="pd" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>REF-BY</mat-label>
+                <input matInput formControlName="refBy" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Lens Type</mat-label>
+                <input matInput formControlName="lensType" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Checkup Date</mat-label>
+                <input matInput formControlName="bookingDate" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Remarks</mat-label>
+                <input matInput formControlName="remarks" />
+              </mat-form-field>
+            </div>
+            <div class="form-section">
+              <div class="section-title">Progressive Measurement</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Right</mat-label>
+                <input matInput formControlName="prgRight" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Left</mat-label>
+                <input matInput formControlName="prgLeft" />
+              </mat-form-field>
+
+            </div>
+            <div class="form-section">
+              <div class="section-title">Previous Power</div>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Right</mat-label>
+                <input matInput formControlName="ppRight" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>Left</mat-label>
+                <input matInput formControlName="ppLeft" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input">
+                <mat-label>ADD</mat-label>
+                <input matInput formControlName="ppAdd" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons">
+            <button mat-raised-button color="primary" type="submit">Save</button>
+            <button mat-raised-button color="primary" type="button" (click)="updateCustomerPower()">Update</button>
+            <button mat-raised-button color="warn" type="button" (click)="deleteCustomerPower()">Delete</button>
+            <button mat-raised-button color="accent" type="reset">Reset</button>
+            <button mat-raised-button color="accent" type="button" (click)="close()">Close</button>
+          </div>
+        </form>
+      </div>
+
+
+    </div>
+
+    <div class="customerPowerList">
+      <!-- <h4>Inventory</h4> -->
+      <table mat-table [dataSource]="customerPowers" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="customerName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.customerName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="contact">
+          <th mat-header-cell *matHeaderCellDef> Contact </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.contactNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="alternateContact">
+          <th mat-header-cell *matHeaderCellDef> Alternate Contact </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.alternateContact}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bookingDate">
+          <th mat-header-cell *matHeaderCellDef> Checkup Date </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.bookingDate}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="refBy">
+          <th mat-header-cell *matHeaderCellDef> Referred By </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.refBy}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="remarks">
+          <th mat-header-cell *matHeaderCellDef> Remarks </th>
+          <td mat-cell *matCellDef="let item of customerList"> {{item.remarks}} </td>
+        </ng-container>
+
+        <!-- Edit Button Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button color="primary" (click)="editCustomerPowerList(item)">Edit</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageIndex]="pageIndex"
+        (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
